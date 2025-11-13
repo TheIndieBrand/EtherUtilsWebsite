@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Base.astro';
+---
+
+<Layout title="EtherUtils">
+    <audio id="sound1" src="iaiaia.mp3" preload="auto"></audio>
+    <audio id="sound2" src="plankton.mp3" preload="auto"></audio>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="document.getElementById('imageModal').style.display='none';">&times;</span>
+            <img id="modalImage" src="plankton.jpg" alt="Imagen Secreta" />
+        </div>
+    </div>
+
+    <section>
+        <div style="text-align: center;">
+            <div class="d-flex align-items-center justify-content-center mb-3">
+                <img class="logo" src="EtherUtils.png" alt="Logo de EtherUtils" style="height: 50px; margin-right: 15px;">
+                <h1 class="h1styled" style="margin: 0;">EtherUtils</h1>
+            </div>
+            
+            <p style="padding-left: 20%; padding-right: 20%;">Una CLI diseñada por <strong>Ether</strong> para crear, instalar y gestionar entornos de desarrollo sin depender de Node.js ni npm.</p>
+            <a class="btn mt-3" href="/pkg/latest" target="_blank">Descargar</a>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="block p-4 mx-2">
+
+                    <h2 class="title mb-4">
+                        <span class="emoji">⚡</span> ¿Qué es EtherUtils (<span class="code-inline">eth</span>)?
+                    </h2>
+
+                    <p class="mb-4">
+                        <span class="highlight">EtherUtils (<span class="code-inline">eth</span>)</span> es una <strong>herramienta de línea de comandos modular</strong> de alto rendimiento diseñada para la automatización y gestión de proyectos.
+                        Te permite <span class="highlight-blue">automatizar tareas</span>, <span class="highlight-blue">crear proyectos base</span> e <span class="highlight-blue">instalar entornos</span> (como Node.js) desde una interfaz unificada.
+                    </p>
+
+                    <div class="callout p-3 mt-4">
+                        <div class="d-flex align-items-start">
+                            <span class="icon-bulb me-3">💡</span>
+                            <div>
+                                <p class="mb-1 fw-bold">Filosofía Central: Independencia</p>
+                                <p class="mb-0 small-p">
+                                    Su principal ventaja es su autonomía: <strong>no depende de npm</strong> ni de ningún gestor externo. Maneja su propio sistema de <span class="highlight-blue">instalación</span>, <span class="highlight-blue">actualización</span> y <span class="highlight-blue">gestión de módulos personalizados</span>, garantizando velocidad y control total.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <h2 class="text-center mb-5 display-5">Características Destacadas</h2>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+
+            <div class="col">
+                <div class="block h-100 shadow-sm cardh p-4 mx-2">
+                    <div class="card-body text-center"> 
+                        
+                        <div class="d-flex align-items-center justify-content-center mb-3"> 
+                            <i class="bi bi-lightning-charge-fill text-primary fs-3 me-2"></i>
+                            <h5 class="card-title mb-0 text-start">Comandos Simples y Rápidos</h5>
+                        </div>
+
+                        <p class="card-text mb-0">Ejecuta tareas básicas para ahorrar tiempo. La velocidad es prioridad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="block h-100 shadow-sm cardh p-4 mx-2">
+                    <div class="card-body text-center">
+
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <i class="bi bi-boxes text-success fs-3 me-2"></i>
+                            <h5 class="card-title mb-0 text-start">Generación de Proyectos Base</h5>
+                        </div>
+
+                        <p class="card-text mb-0">Inicia nuevos proyectos con estructuras preconfiguradas y listas para el desarrollo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="block h-100 shadow-sm cardh p-4 mx-2">
+                    <div class="card-body text-center">
+
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <i class="bi bi-puzzle-fill text-info fs-3 me-2"></i>
+                            <h5 class="card-title mb-0 text-start">Sistema Modular y Flexible</h5>
+                        </div>
+
+                        <p class="card-text mb-0">Diseñado para la escalabilidad, permite añadir o quitar componentes fácilmente según tus necesidades.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="block h-100 shadow-sm cardh p-4 mx-2">
+                    <div class="card-body text-center">
+
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <i class="bi bi-arrow-repeat text-danger fs-3 me-2"></i>
+                            <h5 class="card-title mb-0 text-start">Lanzador integrado</h5>
+                        </div>
+
+                        <p class="card-text mb-0">Actualiza automáticamente cuando haya nuevos cambios.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .logo {
+        mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
+        -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
+    }
+
+    .cardh {
+        transition: all 300ms ease-in-out; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cardh:hover {
+        transform: translateY(-5px); 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+        border-color: var(--accent);
+    }
+
+    .icon-bulb {
+        font-size: 1.5rem;
+        color: var(--accent);
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        margin: 15% auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        position: relative;
+    }
+
+    .modal-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: -30px;
+        right: 0;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        text-shadow: 0 0 5px #000;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: #bbb;
+        text-decoration: none;
+    }
+</style>
+
+<script is:inline>
+    const sound1 = document.getElementById('sound1');
+    const sound2 = document.getElementById('sound2');
+    const imageModal = document.getElementById('imageModal');
+
+    function playSound(audioElement) {
+        audioElement.pause();
+        audioElement.currentTime = 0;
+        audioElement.play().catch(e => console.error("Error al reproducir el sonido:", e));
+    }
+
+    document.addEventListener('keydown', function(event) {
+        const isCtrlKey = event.ctrlKey || event.metaKey;
+
+        if (isCtrlKey && event.key === 'i') {
+            event.preventDefault();
+            playSound(sound1);
+        }
+
+        else if (isCtrlKey && event.key === 'a') {
+            event.preventDefault();
+            
+            imageModal.style.display = 'block';
+            playSound(sound2);
+        }
+    });
+
+    imageModal.addEventListener('click', function(event) {
+        if (event.target === imageModal) imageModal.style.display = 'none';
+    });
+</script>

@@ -1,0 +1,200 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+import ThemeSwitcher from './ThemeSwitcher.astro';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+		<link rel="icon" href="/favicon.ico">
+
+		<title>{title}</title>
+
+		<style is:global>
+			:root {
+				--bg: #f8f9fa;
+				--ground: #f0f0f0;
+				--title: #333;
+				--text: #1a1a1a;
+				--small-text: #555;
+				--muted: #6c757d;
+				--accent: #4e8ef7;
+				--radius: 14px;
+                --highlight-ground: #fff3c9;
+                --highlight-color: var(--muted);
+                --highlight-ground-blue: #7ea8ec;
+			}
+
+			[data-theme="dark"] {
+				--bg: #14171a;
+				--ground: #1c1f24;
+				--title: #f1f3f5;
+				--text: #d9d9d9;
+				--small-text: #a0a0a0;
+				--muted: #8c99a6;
+				--accent: #6aa6ff;
+				--highlight-ground: #3a2d00;
+				--highlight-color: #ffe08a;
+				--highlight-ground-blue: #7ea8ec;
+			}
+
+			[data-theme="ash"] {
+				--bg: #2a2d32;
+				--ground: #373b42;
+				--title: #e8e9eb;
+				--text: #c5c7ca;
+				--small-text: #9a9ca0;
+				--muted: #78808a;
+				--accent: #7c8fa5;
+				--highlight-ground: #4a4d52;
+				--highlight-color: #b8c5d6;
+				--highlight-ground-blue: #5a6b7d;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+				background-color: var(--bg);
+				color: var(--text);
+				margin: 0;
+				padding: 0;
+				line-height: 1.6;
+				transition: background-color 0.3s, color 0.3s;
+			}
+
+			h1, h2, h3 {
+				font-size: 1.8rem;
+				font-weight: 600;
+				color: var(--title);
+			}
+
+			p {
+				font-size: 1rem;
+				color: var(--muted);
+			}
+
+			.small-p {
+				font-size: 0.95rem;
+				color: var(--small-text);
+			}
+
+			.code-inline {
+				font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+				background-color: var(--bg);
+				padding: 2px 5px;
+				border-radius: 3px;
+				font-size: 0.95em;
+			}
+
+			.callout {
+				background-color: var(--bg);
+				border-left: 3px solid var(--accent);
+				border-radius: 4px;
+			}
+
+			section {
+				padding: 3rem 1.5rem;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.h1styled {
+				font-size: 3rem;
+				background: linear-gradient(90deg, var(--accent), #00dfd8);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+
+			.highlight {
+				background-color: var(--highlight-ground);
+                color: var(--highlight-color);
+				padding: 1px 3px;
+				border-radius: 2px;
+			}
+
+			.highlight-blue {
+				background-color: var(--highlight-ground-blue);
+                color: var(--ground);
+				padding: 1px 3px;
+				border-radius: 2px;
+			}
+
+			footer {
+				text-align: center;
+				padding: 2rem 0;
+				color: var(--muted);
+				font-size: 0.9rem;
+				border-top: 1px solid rgba(0,0,0,0.1);
+				margin-top: 3rem;
+				transition: border-color 0.3s;
+			}
+
+			[data-theme="dark"] footer,
+			[data-theme="ash"] footer {
+				border-top: 1px solid rgba(255,255,255,0.1);
+			}
+
+			[data-theme="dark"] .highlight {
+				background-color: var(--highlight-ground);
+				color: var(--highlight-color);
+			}
+
+			[data-theme="dark"] .highlight-blue {
+				background-color: #0b2b42;
+				color: #a6d8ff;
+			}
+
+			[data-theme="dark"] .block {
+				background-color: #1c1f24;
+				border: 1px solid #2b2f35;
+			}
+
+			.btn {
+				display: inline-block;
+				background: var(--accent);
+				color: white;
+				padding: 0.75rem 1.25rem;
+				border-radius: var(--radius);
+				text-decoration: none;
+				font-weight: 600;
+				transition: background 0.2s, color 0.2s, border 0.2s;
+			}
+
+			.btn:hover {
+				transition: 300ms;
+				background: transparent;
+				border: 1px solid var(--accent);
+				color: var(--accent);
+			}
+
+			.block {
+				line-height: 1.6;
+				background-color: var(--ground);
+				border: 1px solid var(--ground);
+				border-radius: 4px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ThemeSwitcher />
+		<slot />
+
+		<footer>
+			<p>© 2025 Ether · The Indie Brand</p>
+		</footer>
+	</body>
+</html>
